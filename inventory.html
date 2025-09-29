@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>360 Organic Foodie - Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    
+  </style>
+</head>
+<body>
+    <!-- Top Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white navrelative ">
+        <div class="container-fluid">
+            <img src="./images/Foodies logo without Banner 1.png" style="width: 50px; height: 50px" alt="">
+            <span class="Navlogo1">360 Organic Foodie</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
+            <ul class="navbar-nav me-auto ">
+                <li class="nav-item">
+                    <div class="input-group Navborder">
+                        <button class="btn btn-outline-secondary border-0" type="button">
+                            <i class="fas fa-search"></i> 
+                        </button>
+                        <input type="text" class="form-control border-0" placeholder="Search here...">
+                    </div>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <div class="d-flex align-items-center">
+                    <button class="text-reset me-3 btnSharp" href="#">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+
+                    <button class="text-reset me-4 btnSharp" href="#" >
+                    <i class="fas fa-bell"></i>
+                    </button>
+                    <img class="me-3" src="./images/cheerful-curly-man-with-bristle-points-left-wears-casual-clothes-spectacles 1.png" alt="">
+                    <span class="CustomP-14-400 me-3 text-dark fw-semibold">Michael Owen</span>
+                    <select class="form" name="" id="" style="border: none;"></select>
+                </div>
+            </form>
+
+             <!-- notification pop-up  -->
+      <div class="col-md-4" id="notificationPopUp">
+          <div class="card p-3">
+            <div class="d-flex align-items-center justify-content-between mb-2 ">
+                <h6>New Customers</h6>
+                <i class="fa-solid fa-ellipsis" style="color: #cbd3e1;"></i>
+            </div>
+            <hr>
+            <!-- first customer -->
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                    <img src="./images/New Customers List.png" alt="">
+                    <div class="ms-3">
+                        <small>Domenica @domenica</small><br>
+                        <small>Comment on Smiles Product</small>
+                    </div>
+                     
+                </div>
+                <small>1h</small>
+            </div>
+            <!-- second customer -->
+            <div class="d-flex align-items-center justify-content-between mt-3">
+                <div class="d-flex align-items-center">
+                    <img src="./images/New Customers List (1).png" alt="">
+                    <div class="ms-3">
+                        <small>Mahfuzul @mahfuzul</small><br>
+                        Repled to your comment on reforest..</small>
+                    </div>
+                     
+                </div>
+                <small>1d</small>
+                <!-- <i class="fa-solid fa-ellipsis" style="color: #cbd3e1;"></i> -->
+            </div>
+
+            <!-- third customer  -->
+            <div class="d-flex align-items-center justify-content-between mt-3">
+                <div class="d-flex align-items-center">
+                    <img src="./images/New Customers List (2).png" alt="">
+                    <div class="ms-3">
+                        <small>Laurel @laurel</small><br>
+                        <small>Purchased a Smiles Product</small>
+                    </div>
+                     
+                </div>
+                <small>2d</small>
+            </div>
+            <!-- fourth customer -->
+            <div class="d-flex align-items-center justify-content-between mt-3">
+                <div class="d-flex align-items-center">
+                    <img src="./images/happy-smiling-handsome-man-against-blue-background.png" alt="">
+                    <div class="ms-3">
+                        <small>Rosina @rosina</small><br>
+                        <small>Just made a purchase of 5 Coconut<br> Crunches Bites.</small>
+                    </div>
+                </div>
+                <small>4h</small>
+            </div>
+            <!-- fifth customer -->
+            <div class="d-flex align-items-center justify-content-between mt-3">
+                <div class="d-flex align-items-center">
+                    <img src="./images/New Customers List.png" alt="">
+                    <div class="ms-3">
+                        <small>Domenica @domenica</small><br>
+                        <small>Comment on Smiles Product</small>
+                    </div>
+                     
+                </div>
+                <small>1h</small>
+            </div>
+          </div>
+        </div>
+        </div>
+    </nav>
+
+
+    <div class="container-fluid ">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-2 sidebar ">
+                <ul class="listItem ">
+            <li">
+            <a href="index.html" class="active" style="text-decoration: none; color: #8D98AF; "><i class="fa-solid fa-house me-3"></i></span><span>Dashboard</span></a>
+            </li>
+            
+            <li>
+            <a href="./orders.html" class="" style="text-decoration: none; color: #8D98AF;"><i class="fa-solid fa-cart-shopping me-3"></i></span><span>Order</span></a>
+            </li>
+            <li>
+            <a href="./customers.html" style="text-decoration: none; color:#8D98AF;"><i class="fa-solid fa-user me-3"></i></span><span>Customers</span></a>
+            </li>
+            <li>
+                <a href="./inventory.html" style="text-decoration: none; color: #8D98AF;"><i class="fa-solid fa-warehouse me-3"></i></span><span>Inventory</span></a>
+            </li>
+            <li>
+                <a href="./notifications.html" style="text-decoration: none; color: #8D98AF;" ><i class="fa-solid fa-bell me-3"></i></span><span>Notification</span></a>
+            </li>
+            <hr>
+            <li class="">
+                <a href="#" style="text-decoration: none; color: #8D98AF;"><i class="fa-solid fa-message me-3"></i></span><span>Reviews</span></a>
+            </li>
+            <li class="">
+                <a href="#" style="text-decoration: none; color: #8D98AF;" ><i class="fa-solid fa-gear me-3"></i></span><span>settings</span></a>
+            </li>
+            
+
+            <button class="Dashbutton mt-5 " style="cursor: pointer;">
+            <a onclick="logout()" style="text-decoration: none; color:#8D98AF ; "><i class="fa-solid fa-arrow-right-from-bracket me-3"></i></span><span class="logspan">Logout</span></a>
+                        </li>
+                </ul>
+            </div>
+
+            <!-- Main Content -->
+            <div class="col-md-10 p-4">
+                <section class="OrderSecT">
+                    <h1>Inventory</h1>
+                    <div class="inventoryTop mt-4 p-3" style="background: #fff;" >
+                        <div>
+                            <h1 style="font-size: 20px; color: #171725;"> Overall inventory</h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-3 col-lg-3" style="border-right: 2px solid #f0f1f3a4;">
+                                <h3 style="color: #00A859;">Categories</h3>
+                                <p>14</p>
+                                <small>Last 7days</small>
+                            </div>
+                            <div class="col-sm-12 col-md-3 col-lg-3" style="border-right: 2px solid #f0f1f3a4;" >
+                                <h3 style="color: #F58634;">Top Products</h3>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <p>868</p>
+                                    <p>$25000</p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <small>Last 7 days</small>
+                                    <small>Revenue</small>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-3 col-lg-3" style="border-right: 2px solid #f0f1f3a4;">
+                                <h3 style= " color: #2F80ED;">Top Selling</h3>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <p>5</p>
+                                    <p>$2500</p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <small>Last 7 days</small>
+                                    <small>Cost</small>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-3 col-lg-3">
+                                <h3 style="color: #F36960;">Low Stock</h3>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <p>12</p>
+                                    <p>2</p>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <small>ordered</small>
+                                    <small>Not in stock</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                    
+                
+
+                    <!-- all order section -->             
+                    <section id="AllorderTable ">
+                        <div class="d-flex align-items-center justify-content-between mt-5 p-3" style="background: #fff;">
+                            <div>
+                                <h2 style="font-size: 20px; color: #171725;">Products</h2>
+                            </div>
+                            <div class="">
+                                <!-- Trigger button (to open modal) -->
+                                <button type="button" class="btn btn-primary intentBtn6" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                Add products
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">New Product</h5>
+                                        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                                    </div>
+
+                                    <!-- Modal Body -->
+                                    <div class="modal-body">
+                                        <div class="row g-3 align-items-center">
+                                            <div class="col-auto">
+                                                <label for="inputPassword6" class="col-form-label">Password</label>
+                                            </div>
+                                            <div class="col-auto">
+                                                <input type="password" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+
+                                    <!-- Modal Footer -->
+                                    <div class="modal-footer">
+                                        <!-- ✅ Button inside modal footer -->
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+
+                                    </div>
+                                </div>
+                                </div>
+
+
+                                
+                                <button class="intentBtn6">Add products</button>
+                                <button class="intentBtn5">Filters</button>
+                                <button class="intentBtn4">Download All</button>
+                            </div>
+                        </div>
+                        <table class="table mt-3 ">
+                            <thead class="">
+                                <tr>
+                                    <th>Products</th>
+                                    <th>Buying Price</th>
+                                    <th>Quantity</th>
+                                    <th>Threshold Value</th>
+                                    <th>Expiry Date</th>
+                                    <th>Availability</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>Berry Bliss Bites</td>
+                                    <td>$430</td>
+                                    <td>43 Packets</td>
+                                    <td>12 packets</td>
+                                    <td>11-12-22</td>
+                                    <td style="color: #10A760;">in- stock</td>
+                                </tr>
+                                <tr>
+                                    <td>Berry Bliss Bites</td>
+                                    <td>$430</td>
+                                    <td>43 Packets</td>
+                                    <td>12 packets</td>
+                                    <td>11-12-22</td>
+                                    <td style="color: #DA3E33;">out-0f-stock</td>
+                                </tr>
+                                <tr>
+                                    <td>Berry Bliss Bites</td>
+                                    <td>$430</td>
+                                    <td>43 Packets</td>
+                                    <td>12 packets</td>
+                                    <td>11-12-22</td>
+                                    <td style="color: #10A760;">in- stock</td>
+                                </tr>
+                                <tr>
+                                    <td>Berry Bliss Bites</td>
+                                    <td>$430</td>
+                                    <td>43 Packets</td>
+                                    <td>12 packets</td>
+                                    <td>11-12-22</td>
+                                    <td style="color: #DA3E33;">out-0f-stock</td>
+                                </tr>
+                                <tr>
+                                    <td>Berry Bliss Bites</td>
+                                    <td>$430</td>
+                                    <td>43 Packets</td>
+                                    <td>12 packets</td>
+                                    <td>11-12-22</td>
+                                    <td style="color: #E19133;">low-stock</td>
+                                </tr>
+                                <tr>
+                                    <td>Berry Bliss Bites</td>
+                                    <td>$430</td>
+                                    <td>43 Packets</td>
+                                    <td>12 packets</td>
+                                    <td>11-12-22</td>
+                                    <td style="color: #10A760;">in- stock</td>
+                                </tr>
+                                <tr>
+                                    <td>Berry Bliss Bites</td>
+                                    <td>$430</td>
+                                    <td>43 Packets</td>
+                                    <td>12 packets</td>
+                                    <td>11-12-22</td>
+                                    <td style="color: #10A760;">in- stock</td>
+                                </tr>
+                                <tr>
+                                    <td>Berry Bliss Bites</td>
+                                    <td>$430</td>
+                                    <td>43 Packets</td>
+                                    <td>12 packets</td>
+                                    <td>11-12-22</td>
+                                    <td style="color: #DA3E33;">out-0f-stock</td>
+                                </tr>
+                                <tr>
+                                    <td>Berry Bliss Bites</td>
+                                    <td>$430</td>
+                                    <td>43 Packets</td>
+                                    <td>12 packets</td>
+                                    <td>11-12-22</td>
+                                    <td style="color: #E19133;">low-stock</td>
+                                </tr>
+                                <tr>
+                                    <td>Berry Bliss Bites</td>
+                                    <td>$430</td>
+                                    <td>43 Packets</td>
+                                    <td>12 packets</td>
+                                    <td>11-12-22</td>
+                                    <td style="color: #10A760;">in- stock</td>
+                                </tr>
+                                <tr>
+                                    <td>Berry Bliss Bites</td>
+                                    <td>$430</td>
+                                    <td>43 Packets</td>
+                                    <td>12 packets</td>
+                                    <td>11-12-22</td>
+                                    <td style="color: #DA3E33;">out-0f-stock</td>
+                                </tr>
+                                <tr>
+                                    <td>Berry Bliss Bites</td>
+                                    <td>$430</td>
+                                    <td>43 Packets</td>
+                                    <td>12 packets</td>
+                                    <td>11-12-22</td>
+                                    <td style="color: #10A760;">in- stock</td>
+                                </tr>
+                                <tr>
+                                    <td>Berry Bliss Bites</td>
+                                    <td>$430</td>
+                                    <td>43 Packets</td>
+                                    <td>12 packets</td>
+                                    <td>11-12-22</td>
+                                    <td style="color: #10A760;">in- stock</td>
+                                </tr>
+                                <tr>
+                                    <td>Berry Bliss Bites</td>
+                                    <td>$430</td>
+                                    <td>43 Packets</td>
+                                    <td>12 packets</td>
+                                    <td>11-12-22</td>
+                                    <td style="color: #DA3E33;">out-0f-stock</td>
+                                </tr>
+                                <tr>
+                                    <td>Berry Bliss Bites</td>
+                                    <td>$430</td>
+                                    <td>43 Packets</td>
+                                    <td>12 packets</td>
+                                    <td>11-12-22</td>
+                                    <td style="color: #E19133;">low-stock</td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <button class="btn btn-outline-secondary intentBtn1">Previous</button>
+                            <button class="btn btn-outline-secondary intentBtn2">Page 1-10</button>
+                            <button class="btn btn-outline-secondary intentBtn3">Next</button>
+                        </div>
+                    </section>
+                
+                </section>
+
+                
+                    <!-- Add Product Modal -->
+                <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form id="addProductForm">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="addProductModalLabel">Add New Product</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                        <div class="mb-3">
+                                            <label for="productName" class="form-label">Product Name</label>
+                                            <input type="text" class="form-control" id="productName" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="buyingPrice" class="form-label">Buying Price</label>
+                                            <input type="number" class="form-control" id="buyingPrice" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="quantity" class="form-label">Quantity</label>
+                                            <input type="number" class="form-control" id="quantity" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="threshold" class="form-label">Threshold Value</label>
+                                            <input type="number" class="form-control" id="threshold" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="expiryDate" class="form-label">Expiry Date</label>
+                                            <input type="date" class="form-control" id="expiryDate" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="availability" class="form-label">Availability</label>
+                                            <select class="form-select" id="availability" required>
+                                                <option value="in-stock">In Stock</option>
+                                                <option value="out-of-stock">Out of Stock</option>
+                                                <option value="low-stock">Low Stock</option>
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="btn btn-primary">Add Product</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    // Show modal on "Add products" button click
+                    document.querySelectorAll('.intentBtn6').forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            var modal = new bootstrap.Modal(document.getElementById('addProductModal'));
+                            modal.show();
+                        });
+                    });
+
+                    // Example: handle form submission (add your logic here)
+                    document.getElementById('addProductForm').addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        // You can add code here to add the product to your table or backend
+                        bootstrap.Modal.getInstance(document.getElementById('addProductModal')).hide();
+                        this.reset();
+                    });
+                </script>
+
+            
+
+                <div class="card text-center" style="width: 37rem; ">
+                    <div class="card-body ">
+                        <img src="./images/Frame 589.png" alt="">
+                        <p class="mt-3">Product Added Successfully</p>
+                        <small class="mt-3">Woohoo! Your product has been added successful. You can now view it in your<br>inventory or add more products.</small>
+                        <div class="mt-3">
+                        <button class="btn btn-outline-success me-3">View Inventory</button> 
+                        <button class="btn btn-success ">Add Another Product</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card text-center" style="width: 30rem; ">
+                        <div class="card-body ">
+                            <img src="./images/undraw_add_files_re_v09g 1.png" alt="">
+                            <p class="mt-3">Download Inventory</p>
+                            <small class="mt-3">Are you sure you want to download the inventory?</small>
+                            <div class="mt-3">
+                            <button class="btn btn-outline-success me-3">View Inventory</button> 
+                            <button class="btn btn-success ">Add Another Product</button>
+                            </div>
+                        </div>
+
+                </div>
+
+                <!-- inventory details section  -->
+                <div class="row mt-5 h4top">
+                    <div class="d-flex align-items-center justify-content-between">
+                            <h2 class="inventoryh2">Organic Almond Delight</h2>
+                            <div class="d-flex">
+                                <button class="btn btn-outline-secondary">Edit</button>
+                                <button class="btn btn-outline-secondary">Download</button>
+                            </div>
+                    </div>
+
+
+                    <div class="col-sm-12 col-md-6 col-lg-5 mt-4" >
+                        <h4>Primary Details</h4>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <p>Product Name</p>
+                            <p>Organic Almond Delight</p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <p>Product ID</p>
+                            <p>#10321</p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <p>Product Category</p>
+                            <p>Instant Snacks</p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <p>Expiry Date</p>
+                            <p>13/11/23</p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <p>Threshold Value</p>
+                            <p>12</p>
+                        </div>
+
+                        <div class="div mt-4">
+                            <h4>Warehouse Details</h4>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <p>Main Warehouse</p>
+                                <p>Maryland, Lagos</p>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <p>Contact Number</p>
+                                <p>+234 8078 867 557</p>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                    <div class="col-sm-12 col-md-6 col-lg-3 offset-lg-4 mt-4 ">
+                        <div class="img text-center">
+                            <img src="./images/Group 1000005103.png" alt="">
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between mt-4">
+                            <p>Opening Stock</p>
+                            <p style="color: #171725;">40</p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <p>Remaining Stock </p>
+                            <p style="color: #171725;">34</p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <p>On The Way</p>
+                            <p style="color: #171725;">15</p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between">
+                            <p>Threshold Value</p>
+                            <p style="color: #171725;">12</p>
+                        </div>
+                        
+                    </div>
+
+                    <div class="row mt-4">
+                        <div class="col-sm-12 col-md-6 col-lg-7">
+                            <div class="div">
+                            <h4>Warehouse Locations</h4>
+                            <div class="d-flex align-items-center justify-content-between mt-3 " style="background: #F0F1F3;">
+                                <p style="color: #171725;">Warehouse Name</p>
+                                <p style="color: #171725;">Stock in Hand</p>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <p>Lekki Branch</p>
+                                <p>15</p>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <p>Surulere Branch </p>
+                                <p>19</p>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                
+
+                
+            </div>
+
+            
+        </div>
+    </div>
+
+
+
+
+
+
+
+<script>
+  // Line Chart
+  new Chart(document.getElementById('trendChart'), {
+    type: 'line',
+    data: {
+      labels: ['Jan','Feb','Mar','Apr','May','Jun'],
+      datasets: [
+        {label:'Orders', data:[200,250,180,300,270,350], borderColor:'#28a745', fill:false},
+        {label:'Revenue', data:[300,400,350,500,450,600], borderColor:'#dc3545', fill:false}
+      ]
+    }
+  });
+
+  // Bar Chart
+  new Chart(document.getElementById('visitChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+      datasets: [{label:'Visits', data:[120,150,180,200,170,140,190], backgroundColor:'#0d6efd'}]
+    }
+  });
+
+  // Doughnut Chart
+  new Chart(document.getElementById('productChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Berry Bites','Organic Almond Delight','Coconut Crunch'],
+      datasets: [{data:[45,32,23], backgroundColor:['#0d6efd','#20c997','#ffc107']}]
+    }
+  });
+
+    
+</script>
+
+
+<script src="./index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>360 Organic Foodie - Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    
+  </style>
+</head>
+<body>
+    <!-- Top Navbar -->
+  <nav class="navbar navbar-expand-lg bg-white navrelative ">
+        <div class="container-fluid">
+            <img src="./images/Foodies logo without Banner 1.png" style="width: 50px; height: 50px" alt="">
+            <span class="Navlogo1">360 Organic Foodie</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
+            <ul class="navbar-nav me-auto ">
+                <li class="nav-item">
+                    <div class="input-group Navborder">
+                        <button class="btn btn-outline-secondary border-0" type="button">
+                            <i class="fas fa-search"></i> 
+                        </button>
+                        <input type="text" class="form-control border-0" placeholder="Search here...">
+                    </div>
+                </li>
+            </ul>
+            <form class="d-flex">
+                <div class="d-flex align-items-center">
+                    <button class="text-reset me-3 btnSharp" href="#">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+
+                    <button class="text-reset me-4 btnSharp" href="#" >
+                    <i class="fas fa-bell"></i>
+                    </button>
+                    <img class="me-3" src="./images/cheerful-curly-man-with-bristle-points-left-wears-casual-clothes-spectacles 1.png" alt="">
+                    <span class="CustomP-14-400 me-3 text-dark fw-semibold">Michael Owen</span>
+                    <select class="form" name="" id="" style="border: none;"></select>
+                </div>
+            </form>
+
+             <!-- notification pop-up  -->
+      <div class="col-md-4" id="notificationPopUp">
+          <div class="card p-3">
+            <div class="d-flex align-items-center justify-content-between mb-2 ">
+                <h6>New Customers</h6>
+                <i class="fa-solid fa-ellipsis" style="color: #cbd3e1;"></i>
+            </div>
+            <hr>
+            <!-- first customer -->
+            <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                    <img src="./images/New Customers List.png" alt="">
+                    <div class="ms-3">
+                        <small>Domenica @domenica</small><br>
+                        <small>Comment on Smiles Product</small>
+                    </div>
+                     
+                </div>
+                <small>1h</small>
+            </div>
+            <!-- second customer -->
+            <div class="d-flex align-items-center justify-content-between mt-3">
+                <div class="d-flex align-items-center">
+                    <img src="./images/New Customers List (1).png" alt="">
+                    <div class="ms-3">
+                        <small>Mahfuzul @mahfuzul</small><br>
+                        Repled to your comment on reforest..</small>
+                    </div>
+                     
+                </div>
+                <small>1d</small>
+                <!-- <i class="fa-solid fa-ellipsis" style="color: #cbd3e1;"></i> -->
+            </div>
+
+            <!-- third customer  -->
+            <div class="d-flex align-items-center justify-content-between mt-3">
+                <div class="d-flex align-items-center">
+                    <img src="./images/New Customers List (2).png" alt="">
+                    <div class="ms-3">
+                        <small>Laurel @laurel</small><br>
+                        <small>Purchased a Smiles Product</small>
+                    </div>
+                     
+                </div>
+                <small>2d</small>
+            </div>
+            <!-- fourth customer -->
+            <div class="d-flex align-items-center justify-content-between mt-3">
+                <div class="d-flex align-items-center">
+                    <img src="./images/happy-smiling-handsome-man-against-blue-background.png" alt="">
+                    <div class="ms-3">
+                        <small>Rosina @rosina</small><br>
+                        <small>Just made a purchase of 5 Coconut<br> Crunches Bites.</small>
+                    </div>
+                </div>
+                <small>4h</small>
+            </div>
+            <!-- fifth customer -->
+            <div class="d-flex align-items-center justify-content-between mt-3">
+                <div class="d-flex align-items-center">
+                    <img src="./images/New Customers List.png" alt="">
+                    <div class="ms-3">
+                        <small>Domenica @domenica</small><br>
+                        <small>Comment on Smiles Product</small>
+                    </div>
+                     
+                </div>
+                <small>1h</small>
+            </div>
+          </div>
+        </div>
+        </div>
+    </nav>
+
+
+<div class="container-fluid ">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-2 sidebar ">
+        <ul class="listItem ">
+    <li">
+    <a href="index.html" class="active" style="text-decoration: none; color: #8D98AF; "><i class="fa-solid fa-house me-3"></i></span><span>Dashboard</span></a>
+    </li>
+    
+    <li>
+    <a href="./orders.html" class="" style="text-decoration: none; color: #8D98AF;"><i class="fa-solid fa-cart-shopping me-3"></i></span><span>Order</span></a>
+    </li>
+    <li>
+    <a href="./customers.html" style="text-decoration: none; color:#8D98AF;"><i class="fa-solid fa-user me-3"></i></span><span>Customers</span></a>
+    </li>
+    <li>
+        <a href="./inventory.html" style="text-decoration: none; color: #8D98AF;"><i class="fa-solid fa-warehouse me-3"></i></span><span>Inventory</span></a>
+    </li>
+    <li>
+        <a href="./notifications.html" style="text-decoration: none; color: #8D98AF;" ><i class="fa-solid fa-bell me-3"></i></span><span>Notification</span></a>
+    </li>
+    <hr>
+    <li class="">
+        <a href="#" style="text-decoration: none; color: #8D98AF;"><i class="fa-solid fa-message me-3"></i></span><span>Reviews</span></a>
+    </li>
+    <li class="">
+        <a href="#" style="text-decoration: none; color: #8D98AF;" ><i class="fa-solid fa-gear me-3"></i></span><span>settings</span></a>
+    </li>
+    
+
+    <button class="Dashbutton mt-5 " style="cursor: pointer;">
+    <a onclick="logout()" style="text-decoration: none; color:#8D98AF ; "><i class="fa-solid fa-arrow-right-from-bracket me-3"></i></span><span class="logspan">Logout</span></a>
+                </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="col-md-10 p-4">
+        <section class="OrderSecT">
+            <h1>Customers</h1>
+            
+
+            <!-- all order section -->             
+            <section id="AllorderTable shadow">
+                <!-- customer pagination  -->
+                <div class="">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">All</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">Active</span>
+                                </a>
+                            <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next">
+                                        <span aria-hidden="true">Offline</span>
+                                    </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- customer online user section  -->
+                <div class="row g-3 mb-4">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <p class="UserTag">Users</p>
+                        <div class="d-flex align-items-center">
+                            <p><i class="fa-solid fa-bars me-2" style="color: #171725;"></i></p>
+                            <p><i class="fa-solid fa-bars me-2" style="color: #171725;"></i></p>
+                        </div>
+                    </div>
+
+                    <!-- customer card section -->
+                    
+                    
+                    <div class="col-md-2">
+                        <div class="metric-card" >
+                            <img src="./images/cheerful-curly-man-with-bristle-points-left-wears-casual-clothes-spectacles 1.png" class="mb-2" alt="">
+                            <div class="">
+                                <p class="onlinePtag">Micheal Owen</p>
+                                <small class="mb-2 onlineSmalltag">Customer</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-2">
+                        <div class="metric-card">
+                            <img src="./images/New Customers List (1).png" alt="">
+                            <div class="">
+                                <p class="onlinePtag">Jakir Hussen</p>
+                                <small class="mb-2 onlineSmalltag">Customer</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="metric-card">
+                            <img src="./images/New Customers List (2).png" alt="">
+                            <div class="">
+                                <p class="onlinePtag">Moinul Hasan Nayem</p>
+                                <small class="mb-2 onlineSmalltag">Customer</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="metric-card">
+                            <img src="./images/portrait-african-american-man.png" alt="">
+                            <div class="">
+                                <p class="onlinePtag">Jubed ahmed</p>
+                                <small class="mb-2 onlineSmalltag">Customer</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="metric-card">
+                            <img src="./images/User 41.png" alt="">
+                            <div class="">
+                                <p class="onlinePtag">Delwer Hussain</p>
+                                <small class="mb-2 onlineSmalltag">Customer</small>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
+                <!-- customer change view  USERS (list/Grid) -->
+                <div class="d-flex align-items-center justify-content-between">
+                    <p class="UserTag">Users</p>
+                    <div class="d-flex align-items-center">
+                        <p><i class="fa-solid fa-bars me-2" style="color: #171725;"></i></p>
+                        <p><i class="fa-solid fa-bars me-2" style="color: #171725;"></i></p>
+                    </div>
+                </div>
+                <!-- customer table section -->
+                <table class="table mt-3 customerTHEAD">
+                    <thead>
+                        <tr>
+                            <th> <input type="checkbox" class="me-2">User <i class="fa-solid fa-arrow-down ms-2" style="color: #d5ddeb;"></i></th>
+                            <th></i>Status</th>
+                            <th></i>Email</th>
+                            <th></i>Location</th>
+                            <th></i>Phone</th>
+                            <th><i class="fa-solid fa-ellipsis" style="color: #cbd3e1;"></i></th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <input type="checkbox" class="me-2 boxChect">
+                                    <img src="./images/New Customers List (3).png" style="width: 25px;" alt="">
+                                    <div class="ms-2 custOmerPtag">
+                                        <small style="color: #171725;">Angelo Libero</small><br>
+                                        <small style="color: #8D98AF; font-size: 10px;" >@angelolibero</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><i class="fa-solid fa-circle me-2" style="color: #00A859;"></i>Active</td>
+                            <td>angelolivero@gmail.com</td>
+                            <td><i class="fa-solid fa-location-dot me-2" style="color: #9bacca;"></i>Ikeja, Lagos</td>
+                            <td>+234 808 456 7890</td>
+                            <td><i class="fa-solid fa-ellipsis" style="color: #cbd3e1;"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <input type="checkbox" class="me-2 boxChect">
+                                    <img src="./images/New Customers List (1).png" style="width: 25px;" alt="">
+                                    <div class="ms-2 custOmerPtag">
+                                        <small style="color: #171725;">Mahfuzul Islam Nabil</small><br>
+                                        <small style="color: #8D98AF; font-size: 10px;" >@mahfuzulnabil</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><i class="fa-solid fa-circle me-2" style="color: #00A859;"></i>Active</td>
+                            <td>mahfuzulna@gmail.com</td>
+                            <td><i class="fa-solid fa-location-dot me-2" style="color: #9bacca;"></i>lekki, Lagos</td>
+                            <td>+234 808 456 7890</td>
+                            <td><i class="fa-solid fa-ellipsis" style="color: #cbd3e1;"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <input type="checkbox" class="me-2 boxChect">
+                                    <img src="./images/New Customers List (2).png" style="width: 25px;" alt="">
+                                    <div class="ms-2 custOmerPtag">
+                                        <small style="color: #171725;">Jakir Hussen</small><br>
+                                        <small style="color: #8D98AF; font-size: 10px;" >@jakirhusen</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><i class="fa-solid fa-circle me-2" style="color: #a2f4dc;"></i>offline</td>
+                            <td>jakirhusen@gmail.com</td>
+                            <td><i class="fa-solid fa-location-dot me-2" style="color: #9bacca;"></i>Maryland, Lagos</td>
+                            <td>+234 808 456 7890</td>
+                            <td><i class="fa-solid fa-ellipsis" style="color: #cbd3e1;"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <input type="checkbox" class="me-2 boxChect">
+                                    <img src="./images/happy-smiling-handsome-man-against-blue-background.png" style="width: 25px;" alt="">
+                                    <div class="ms-2 custOmerPtag">
+                                        <small style="color: #171725;">Jubed Ahmed</small><br>
+                                        <small style="color: #8D98AF; font-size: 10px;" >@jubedahmed</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><i class="fa-solid fa-circle me-2" style="color: #00A859;"></i>Active</td>
+                            <td>jubed@gmail.com</td>
+                            <td><i class="fa-solid fa-location-dot me-2" style="color: #9bacca;"></i>Ikeja, Lagos</td>
+                            <td>+234 808 456 7890</td>
+                            <td><i class="fa-solid fa-ellipsis" style="color: #cbd3e1;"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <input type="checkbox" class="me-2 boxChect">
+                                    <img src="./images/portrait-african-american-man.png" style="width: 25px;" alt="">
+                                    <div class="ms-2 custOmerPtag">
+                                        <small style="color: #171725;">Tajul Islam</small><br>
+                                        <small style="color: #8D98AF; font-size: 10px;" >@angelolibero</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><i class="fa-solid fa-circle me-2" style="color: #a2f4dc;"></i>Offline</td>
+                            <td>tajulislam@gmail.com</td>
+                            <td><i class="fa-solid fa-location-dot me-2" style="color: #9bacca;"></i>lekki, Lagos</td>
+                            <td>+234 808 456 7890</td>
+                            <td><i class="fa-solid fa-ellipsis" style="color: #cbd3e1;"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <input type="checkbox" class="me-2 boxChect">
+                                    <img src="./images/User 41.png" style="width: 25px;" alt="">
+                                    <div class="ms-2 custOmerPtag">
+                                        <small style="color: #171725;">Delwor Hussen</small><br>
+                                        <small style="color: #8D98AF; font-size: 10px;" >@delworhussen</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><i class="fa-solid fa-circle me-2" style="color: #00A859;"></i>Active</td>
+                            <td>@delworhussen</td>
+                            <td><i class="fa-solid fa-location-dot me-2" style="color: #9bacca;"></i>Mushin, Lagos</td>
+                            <td>+234 808 456 7890</td>
+                            <td><i class="fa-solid fa-ellipsis" style="color: #cbd3e1;"></i></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <input type="checkbox" class="me-2 boxChect">
+                                    <img src="./images/portrait-handsome-young-man-makes-okay-gesture-demonstrates-agreement-likes-idea-smiles-happily-wears-optical-glasses-yellow-hat-t-shirt-models-indoor-its-fine-thank-you-hand-sign.png" style="width: 25px;" alt="">
+                                    <div class="ms-2 custOmerPtag">
+                                        <small style="color: #171725;">Angelo Libero</small><br>
+                                        <small style="color: #8D98AF; font-size: 10px;" >@angelolibero</small>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><i class="fa-solid fa-circle me-2" style="color: #00A859;"></i>Active</td>
+                            <td>angelolivero@gmail.com</td>
+                            <td><i class="fa-solid fa-location-dot me-2" style="color: #9bacca;"></i>epe, Lagos</td>
+                            <td>+234 808 456 7890</td>
+                            <td><i class="fa-solid fa-ellipsis" style="color: #cbd3e1;"></i></td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </section>
+    
+        </section>
+
+        <!-- customer pop-up section  -->
+        <div class="col-md-4" id="customerPopUp">
+            <div class="card p-3" style="width: 537px; height: 675px;">
+              <div class="d-flex align-items-center justify-content-between ">
+                  <h6>Customer Details</h6>
+                  <i class="fa-solid fa-ban me-2" style="color: #8D98AF;"></i>
+              </div>
+              
+              <!-- customer -->
+              <div class="">
+                    <div class="d-flex align-items-center gap-3">
+                      <img src="./images/New Customers List (4).png"   alt="">
+                      <button class="btn  btn-success">Upload Now</button>
+                      <button class="btn btn-secondary">Delete avatar</button>
+                    </div>
+
+                    <div class="div">
+                        <form action="">
+                            <form>
+                                <div class="row g-2 mt-3">
+                                    <div class="col-md">
+                                        <div class="">
+                                        <label class="mb-2" for="floatingInputGrid">First Name</label>
+                                        <input type="text" class="form-control" id="floatingInputGrid" placeholder="" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="">
+                                        <label class="mb-2" for="floatingInputGrid">Last Name</label>
+                                        <input type="email" class="form-control" id="floatingInputGrid" placeholder="" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-2 mt-2">
+                                    <div class="col-md">
+                                        <div class="">
+                                        <label class="mb-2" for="floatingInputGrid">Email address</label>
+                                        <input type="email" class="form-control" id="floatingInputGrid" placeholder="" value="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="">
+                                        <label class="mb-2" for="floatingInputGrid">Phone Number</label>
+                                        <input type="number" class="form-control" id="floatingInputGrid" placeholder="" value="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-2 mt-2">
+                                    <div class="col-md">
+                                        <div class="">
+                                        <label class="mb-2" for="floatingInputGrid">Date of Birth</label>
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option value="1">28-12-1994</option>
+                                                <option value="2">Two</option>
+                                                <option value="3">Three</option>
+                                            </select>
+                                        <!-- <input type="email" class="form-control" id="floatingInputGrid" placeholder="" value=""> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md">
+                                        <div class="">
+                                        <label class="mb-2" for="floatingInputGrid">Gender</label>
+                                        <select class="form-select" aria-label="Default select example">
+                                                <option value="1">Male</option>
+                                                <option value="2">Female</option>
+                                                <option value="3">Rather Not say</option>
+                                            </select>
+                                        <!-- <input type="number" class="form-control" id="floatingInputGrid" placeholder="" value=""> -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md mt-3">
+                                        <div class="">
+                                        <label class="mb-2" for="floatingInputGrid">Location</label>
+                                        <select class="form-select" aria-label="Default select example">
+                                                <option value="1">Ikeja, Lagos</option>
+                                                <option value="2">Female</option>
+                                                <option value="3">Rather Not say</option>
+                                            </select>
+                                        <!-- <input type="number" class="form-control" id="floatingInputGrid" placeholder="" value=""> -->
+                                    </div>
+                                </div>
+
+
+                                <div class="text-end mt-4">
+                                    <button class="btn  btn-secondary ">Cancel</button>
+                                    <button class="btn  btn-success ">Save</button>
+                                </div>
+                                
+                                
+                            </form>
+
+
+                        </form>
+                    </div>
+                </div>
+        
+            </div>
+        </div>
+
+        <!-- add first customer section -->
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="card text-center py-5">
+                    <div class="card-top">
+                        <img src="./images/illustration (5).png" alt="">
+                    </div>
+                    <div class="card-body">
+                        <h3>Add First Customer</h3>
+                        <p>Having a customer list helps to know your audience better.<br>Manage your customers in one place and target your audience better.</p>
+                        <button class="btn btn-success text-white">+ Add Customer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+<script>
+  // Line Chart
+  new Chart(document.getElementById('trendChart'), {
+    type: 'line',
+    data: {
+      labels: ['Jan','Feb','Mar','Apr','May','Jun'],
+      datasets: [
+        {label:'Orders', data:[200,250,180,300,270,350], borderColor:'#28a745', fill:false},
+        {label:'Revenue', data:[300,400,350,500,450,600], borderColor:'#dc3545', fill:false}
+      ]
+    }
+  });
+
+  // Bar Chart
+  new Chart(document.getElementById('visitChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+      datasets: [{label:'Visits', data:[120,150,180,200,170,140,190], backgroundColor:'#0d6efd'}]
+    }
+  });
+
+  // Doughnut Chart
+  new Chart(document.getElementById('productChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Berry Bites','Organic Almond Delight','Coconut Crunch'],
+      datasets: [{data:[45,32,23], backgroundColor:['#0d6efd','#20c997','#ffc107']}]
+    }
+  });
+
+    
+</script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js" integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="./index.js"></script>
+
+</body>
+</html>
