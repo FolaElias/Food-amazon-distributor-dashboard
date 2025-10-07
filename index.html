@@ -12,6 +12,8 @@
   <style>
     
   </style>
+  
+
 </head>
 <body>
     <!-- Top Navbar -->
@@ -217,19 +219,22 @@
       <!-- Top Metrics -->
       <div class="row g-3 mb-4" >
         <div class="col-md-3">
-          <div class="metric-card">
-            <h5>Total Distribution (Yearly)</h5>
-            <h3>$84,573</h3><small class="text-success">+4.2%</small>
-            <small class="text-success">+4.2% </small><i class="fa-light fa-arrow-up" style="color: red;"></i>
-            <small>Compared to ($3400 last year)</small>
-          </div>
+        <div class="metric-card">
+          <h5>Total Sales (Yearly)</h5>
+          <h3 id="totalSales">₦0</h3>
+          <small class="text-success">+4.2%</small>
+          <i class="fa-light fa-arrow-up" style="color: red;"></i>
+          <small>Compared to last year</small>
+        </div>
+
         </div>
         <div class="col-md-3">
-          <div class="metric-card">
-            <h5>Total Distribution (Daily)</h5>
-            <h3>$124,055</h3>
-            <small class="text-success">+3.2% vs last year</small>
+         <div class="metric-card">
+            <h5>Total Sales (Daily)</h5>
+            <h3 id="totalSalesDaily">₦0</h3>
+            <small class="text-success">+0% vs yesterday</small>
           </div>
+
         </div>
         <div class="col-md-3">
           <div class="metric-card">
@@ -273,21 +278,19 @@
           <h6>Avaliable Products</h6>
           </div>
           <div class=" table-responsive" >
-          <table class=" table big-table table-borderless" style="height: 400px;">
-            <thead class="tablePad">
-              <tr class="" style="color: #8D98AF; ">
-                <th>Name</th>
-                <th>Category</th>
-                <th>Stock</th>
-                <th>Amount</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              
-              
-            </tbody>
-          </table>
+            <table class="table big-table table-borderless" id="TayBlade" style="height: 400px;">
+  <thead class="tablePad">
+    <tr style="color: #8D98AF;">
+      <th>Name</th>
+      <th>Category</th>
+      <th>Stock</th>
+      <th>Amount</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
           </div>
           </div>
         </div>
@@ -448,6 +451,8 @@
 
     
 </script>
+
+
 
 
 <script src="index.js"></script>
