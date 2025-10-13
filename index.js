@@ -506,44 +506,74 @@ function showOrderModal(order) {
 
 
 
-async function loadTotalSales() {
+async function loadYearlySales() {
   try {
     const distributorCity = localStorage.getItem("userCity");
     if (!distributorCity) return;
 
-    const response = await fetch(
-      "http://localhost:3001/amazon/document/api/orders"
-    );
+    const response = await fetch("http://localhost:3001/amazon/document/api/orders");
     if (!response.ok) throw new Error("Failed to fetch orders");
 
     const orders = await response.json();
 
-    // Filter orders by distributor city and current year
-    const currentYear = new Date().getFullYear();
-    const cityOrders = orders.filter(
-      (order) =>
-        order.customerSnapshot?.city?.toLowerCase() ===
-          distributorCity.toLowerCase() &&
-        new Date(order.createdAt).getFullYear() === currentYear
-    );
+    // 🔹 Get current and previous year
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    const previousYear = currentYear - 1;
 
-    // Sum totalAmount
-    const totalSales = cityOrders.reduce(
-      (sum, order) => sum + (order.totalAmount || 0),
+    // 🔹 Filter orders for current and previous year (by city)
+    const currentYearOrders = orders.filter(order => {
+      const orderDate = new Date(order.createdAt);
+      return (
+        order.customerSnapshot?.city?.toLowerCase() === distributorCity.toLowerCase() &&
+        orderDate.getFullYear() === currentYear
+      );
+    });
+
+    const previousYearOrders = orders.filter(order => {
+      const orderDate = new Date(order.createdAt);
+      return (
+        order.customerSnapshot?.city?.toLowerCase() === distributorCity.toLowerCase() &&
+        orderDate.getFullYear() === previousYear
+      );
+    });
+
+    // 🔹 Calculate totals
+    const yearlySales = currentYearOrders.reduce(
+      (sum, order) => sum + Number(order.totalAmount || 0),
+      0
+    );
+    const lastYearSales = previousYearOrders.reduce(
+      (sum, order) => sum + Number(order.totalAmount || 0),
       0
     );
 
-    // Animate the number
-    const totalSalesElem = document.getElementById("totalSales");
-    if (!totalSalesElem) return;
+    // 🔹 Calculate % change
+    const changePercent =
+      lastYearSales === 0 ? 0 : ((yearlySales - lastYearSales) / lastYearSales) * 100;
 
-    animateNumber(totalSalesElem, totalSales);
+    // 🔹 Update UI
+    const yearlySalesElem = document.getElementById("yearlySales");
+    const yearlyChangeElem = document.getElementById("yearlyChange");
+    const yearlyTitleElem = document.getElementById("yearlySalesTitle");
+
+    if (yearlyTitleElem) {
+      yearlyTitleElem.textContent = `Total Sales (${currentYear})`;
+    }
+
+    if (yearlySalesElem) animateNumber(yearlySalesElem, yearlySales);
+    if (yearlyChangeElem) {
+      const sign = changePercent >= 0 ? "+" : "";
+      yearlyChangeElem.textContent = `${sign}${changePercent.toFixed(1)}% vs ${previousYear}`;
+      yearlyChangeElem.classList.toggle("text-success", changePercent >= 0);
+      yearlyChangeElem.classList.toggle("text-danger", changePercent < 0);
+    }
   } catch (error) {
-    console.error("🔥 Error loading total sales:", error);
+    console.error("🔥 Error loading yearly sales:", error);
   }
 }
 
-// Simple number animation
+// 🔹 Animation function (same as before)
 function animateNumber(element, targetValue, duration = 1500) {
   const startValue = 0;
   const startTime = performance.now();
@@ -554,16 +584,16 @@ function animateNumber(element, targetValue, duration = 1500) {
     const currentNumber = Math.floor(progress * targetValue);
     element.textContent = `₦${currentNumber.toLocaleString("en-NG")}`;
 
-    if (progress < 1) {
-      requestAnimationFrame(update);
-    }
+    if (progress < 1) requestAnimationFrame(update);
   }
 
   requestAnimationFrame(update);
 }
 
-// Call on page load
-document.addEventListener("DOMContentLoaded", loadTotalSales);
+document.addEventListener("DOMContentLoaded", () => {
+  loadYearlySales();
+});
+
 
 async function loadDailySales() {
   try {
@@ -673,12 +703,18 @@ async function loadWeeklySales() {
 
     const orders = await response.json();
 
-    // Get current date and date 7 days ago
+    // 🔹 Get current date and last 7 days range
     const now = new Date();
     const sevenDaysAgo = new Date();
     sevenDaysAgo.setDate(now.getDate() - 7);
 
-    // Filter by distributor city and last 7 days
+    // Format helper (e.g. "Oct 6")
+    const formatDate = (date) =>
+      date.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+
+    const rangeLabel = `${formatDate(sevenDaysAgo)} – ${formatDate(now)}`;
+
+    // 🔹 Filter by city and last 7 days
     const weeklyOrders = orders.filter(order => {
       const orderDate = new Date(order.createdAt);
       return (
@@ -688,10 +724,13 @@ async function loadWeeklySales() {
       );
     });
 
-    // Calculate total weekly sales
-    const weeklySales = weeklyOrders.reduce((sum, order) => sum + (order.totalAmount || 0), 0);
+    // 🔹 Calculate total weekly sales
+    const weeklySales = weeklyOrders.reduce(
+      (sum, order) => sum + Number(order.totalAmount || 0),
+      0
+    );
 
-    // Optionally compare with previous week
+    // 🔹 Compare with previous week
     const prevWeekStart = new Date(sevenDaysAgo);
     const prevWeekEnd = new Date(sevenDaysAgo);
     prevWeekStart.setDate(sevenDaysAgo.getDate() - 7);
@@ -705,13 +744,22 @@ async function loadWeeklySales() {
       );
     });
 
-    const prevWeekSales = prevWeekOrders.reduce((sum, order) => sum + (order.totalAmount || 0), 0);
+    const prevWeekSales = prevWeekOrders.reduce(
+      (sum, order) => sum + Number(order.totalAmount || 0),
+      0
+    );
+
     const changePercent =
       prevWeekSales === 0 ? 0 : ((weeklySales - prevWeekSales) / prevWeekSales) * 100;
 
-    // Display and animate
+    // 🔹 Update UI
     const weeklySalesElem = document.getElementById("weeklySales");
     const weeklyChangeElem = document.getElementById("weeklyChange");
+    const weeklyTitleElem = document.getElementById("weeklySalesTitle");
+
+    if (weeklyTitleElem) {
+      weeklyTitleElem.textContent = `Total Sales (${rangeLabel})`;
+    }
 
     if (weeklySalesElem) animateNumber(weeklySalesElem, weeklySales);
     if (weeklyChangeElem) {
@@ -746,6 +794,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
 async function loadMonthlySales() {
   try {
     const distributorCity = localStorage.getItem("userCity");
@@ -757,11 +806,18 @@ async function loadMonthlySales() {
     const orders = await response.json();
 
     const now = new Date();
-    const currentMonth = now.getMonth();
     const currentYear = now.getFullYear();
+    const currentMonth = now.getMonth();
 
-    // 🔹 Filter for current month’s orders
-    const currentMonthOrders = orders.filter(order => {
+    // 🔹 Month names for display
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    const currentMonthName = monthNames[currentMonth];
+
+    // 🔹 Filter for current month
+    const monthlyOrders = orders.filter(order => {
       const orderDate = new Date(order.createdAt);
       return (
         order.customerSnapshot?.city?.toLowerCase() === distributorCity.toLowerCase() &&
@@ -770,12 +826,13 @@ async function loadMonthlySales() {
       );
     });
 
-    const currentMonthTotal = currentMonthOrders.reduce(
-      (sum, order) => sum + (order.totalAmount || 0),
+    // 🔹 Calculate total monthly sales
+    const monthlySales = monthlyOrders.reduce(
+      (sum, order) => sum + Number(order.totalAmount || 0),
       0
     );
 
-    // 🔹 Filter for previous month’s orders
+    // 🔹 Filter for previous month
     const prevMonth = currentMonth === 0 ? 11 : currentMonth - 1;
     const prevYear = currentMonth === 0 ? currentYear - 1 : currentYear;
 
@@ -788,25 +845,30 @@ async function loadMonthlySales() {
       );
     });
 
-    const prevMonthTotal = prevMonthOrders.reduce(
-      (sum, order) => sum + (order.totalAmount || 0),
+    const prevMonthSales = prevMonthOrders.reduce(
+      (sum, order) => sum + Number(order.totalAmount || 0),
       0
     );
 
-    // 🔹 Calculate change percentage
+    // 🔹 Calculate percentage change
     const changePercent =
-      prevMonthTotal === 0 ? 0 : ((currentMonthTotal - prevMonthTotal) / prevMonthTotal) * 100;
+      prevMonthSales === 0 ? 0 : ((monthlySales - prevMonthSales) / prevMonthSales) * 100;
 
-    // 🔹 Update UI
-    const salesElem = document.getElementById("monthlySales");
-    const changeElem = document.getElementById("monthlySalesChange");
+    // 🔹 Display and animate
+    const monthlySalesElem = document.getElementById("monthlySales");
+    const monthlyChangeElem = document.getElementById("monthlySalesChange");
+    const monthlyTitleElem = document.getElementById("monthlySalesTitle");
 
-    if (salesElem) animateNumber(salesElem, currentMonthTotal, "₦");
-    if (changeElem) {
+    if (monthlyTitleElem) {
+      monthlyTitleElem.textContent = `Total Sales (${currentMonthName})`;
+    }
+
+    if (monthlySalesElem) animateNumber(monthlySalesElem, monthlySales);
+    if (monthlyChangeElem) {
       const sign = changePercent >= 0 ? "+" : "";
-      changeElem.textContent = `${sign}${changePercent.toFixed(1)}% vs last month`;
-      changeElem.classList.toggle("text-success", changePercent >= 0);
-      changeElem.classList.toggle("text-danger", changePercent < 0);
+      monthlyChangeElem.textContent = `${sign}${changePercent.toFixed(1)}% vs last month`;
+      monthlyChangeElem.classList.toggle("text-success", changePercent >= 0);
+      monthlyChangeElem.classList.toggle("text-danger", changePercent < 0);
     }
   } catch (error) {
     console.error("🔥 Error loading monthly sales:", error);
@@ -832,6 +894,9 @@ function animateNumber(element, targetValue, duration = 1500) {
 document.addEventListener("DOMContentLoaded", () => {
   loadMonthlySales();
 });
+
+
+
 
 
 // async function loadDistributorUsers() {

@@ -267,16 +267,14 @@
     <div class="col-md-10 p-4 ">
       <!-- Top Metrics -->
       <div class="row g-3 mb-4 mt-lg-5 mt-md-5" >
-        <div class="col-md-3">
-        <div class="metric-card">
-          <h5>Total Sales (Yearly)</h5>
-          <h3 id="totalSales">₦0</h3>
-          <small class="text-success">+4.2%</small>
-          <i class="fa-light fa-arrow-up" style="color: red;"></i>
-          <small>Compared to last year</small>
-        </div>
+       <div class="col-md-3">
+  <div class="metric-card">
+    <h5 id="yearlySalesTitle">Total Sales (Yearly)</h5>
+    <h3 id="yearlySales">₦0</h3>
+    <small id="yearlyChange" class="text-success"></small>
+  </div>
+</div>
 
-        </div>
         <div class="col-md-3">
          <div class="metric-card">
             <h5>Total Sales (Daily)</h5>
@@ -285,21 +283,23 @@
           </div>
 
         </div>
-       <div class="col-md-3">
+    <div class="col-md-3">
   <div class="metric-card">
-    <h5>Total Sales (Weekly)</h5> 
+    <h5 id="weeklySalesTitle">Total Sales (Weekly)</h5>
     <h3 id="weeklySales">₦0</h3>
-    <small class="text-danger" id="weeklyChange"></small>
+    <small id="weeklyChange" class="text-success"></small>
   </div>
 </div>
 
-       <div class="col-md-3">
+
+     <div class="col-md-3">
   <div class="metric-card">
-    <h5>Total Sales (Monthly)</h5> 
+    <h5 id="monthlySalesTitle">Total Sales (Monthly)</h5>
     <h3 id="monthlySales">₦0</h3>
     <small id="monthlySalesChange" class="text-success"></small>
   </div>
 </div>
+
 
 
       <!-- Charts -->
