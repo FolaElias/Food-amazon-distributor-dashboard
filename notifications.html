@@ -14,391 +14,197 @@
   </style>
 </head>
 <body>
-    <!-- Top Navbar -->
-  <nav class="navbar navbar-expand-lg bg-white navrelative ">
+   <!-- Desktop Navbar (visible on md and up) -->
+      <nav class="navbar navbar-expand-md bg-white d-none d-md-flex fixed-top">
         <div class="container-fluid">
-            <img src="./images/Foodies logo without Banner 1.png" style="width: 50px; height: 50px" alt="">
-            <span class="Navlogo1">360 Organic Foodie</span>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
-            <ul class="navbar-nav me-auto ">
-                <li class="nav-item">
-                    <div class="input-group Navborder">
-                        <button class="btn btn-outline-secondary border-0" type="button">
-                            <i class="fas fa-search"></i> 
-                        </button>
-                        <input type="text" class="form-control border-0" placeholder="Search here...">
-                    </div>
-                </li>
+          <img src="./images/Foodies logo without Banner 1.png" style="width: 50px; height: 50px" alt="">
+          <span class="Navlogo1 d-md-none">360 Organic Foodie</span>
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <div class="input-group Navborder">
+                  <button class="btn btn-outline-secondary border-0" type="button">
+                    <i class="fas fa-search"></i>
+                  </button>
+                  <input type="text" class="form-control border-0" placeholder="Search here...">
+                </div>
+              </li>
             </ul>
             <form class="d-flex">
-                <div class="d-flex align-items-center">
-                    <button class="text-reset me-3 btnSharp" href="#">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    </button>
+              <div class="d-flex align-items-center">
+                <button class="text-reset me-3 btnSharp"><i class="fa-solid fa-cart-shopping"></i></button>
+                <button class="text-reset me-4 btnSharp position-relative" onclick="toggleNotification(event)">
+                  <i class="fas fa-bell"></i>
+                  <span id="notificationBadge"
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                        style="font-size: 0.7rem; display:none;">
+                  </span>
+                </button>
+                <img class="me-3 rounded-circle" src="./images/cheerful-curly-man-with-bristle-points-left-wears-casual-clothes-spectacles 1.png" alt="" width="40" height="40">
+                                <span id="distributorName" class="CustomP-14-400 me-3 text-dark fw-semibold"></span>
 
-                    <button class="text-reset me-4 btnSharp" href="#" >
-                    <i class="fas fa-bell"></i>
-                    </button>
-                    <img class="me-3" src="./images/cheerful-curly-man-with-bristle-points-left-wears-casual-clothes-spectacles 1.png" alt="">
-                    <span class="CustomP-14-400 me-3 text-dark fw-semibold">Michael Owen</span>
-                    <select class="form" name="" id="" style="border: none;"></select>
-                </div>
+              </div>
             </form>
-
-             <!-- notification pop-up  -->
-      <div class="col-md-4" id="notificationPopUp">
-          <div class="card p-3">
-            <div class="d-flex align-items-center justify-content-between mb-2 ">
-                <h6>New Customers</h6>
-                <i class="fa-solid fa-ellipsis" style="color: #cbd3e1;"></i>
-            </div>
-            <hr>
-            <!-- first customer -->
-            <div class="d-flex align-items-center justify-content-between">
-                <div class="d-flex align-items-center">
-                    <img src="./images/New Customers List.png" alt="">
-                    <div class="ms-3">
-                        <small>Domenica @domenica</small><br>
-                        <small>Comment on Smiles Product</small>
-                    </div>
-                     
-                </div>
-                <small>1h</small>
-            </div>
-            <!-- second customer -->
-            <div class="d-flex align-items-center justify-content-between mt-3">
-                <div class="d-flex align-items-center">
-                    <img src="./images/New Customers List (1).png" alt="">
-                    <div class="ms-3">
-                        <small>Mahfuzul @mahfuzul</small><br>
-                        Repled to your comment on reforest..</small>
-                    </div>
-                     
-                </div>
-                <small>1d</small>
-                <!-- <i class="fa-solid fa-ellipsis" style="color: #cbd3e1;"></i> -->
-            </div>
-
-            <!-- third customer  -->
-            <div class="d-flex align-items-center justify-content-between mt-3">
-                <div class="d-flex align-items-center">
-                    <img src="./images/New Customers List (2).png" alt="">
-                    <div class="ms-3">
-                        <small>Laurel @laurel</small><br>
-                        <small>Purchased a Smiles Product</small>
-                    </div>
-                     
-                </div>
-                <small>2d</small>
-            </div>
-            <!-- fourth customer -->
-            <div class="d-flex align-items-center justify-content-between mt-3">
-                <div class="d-flex align-items-center">
-                    <img src="./images/happy-smiling-handsome-man-against-blue-background.png" alt="">
-                    <div class="ms-3">
-                        <small>Rosina @rosina</small><br>
-                        <small>Just made a purchase of 5 Coconut<br> Crunches Bites.</small>
-                    </div>
-                </div>
-                <small>4h</small>
-            </div>
-            <!-- fifth customer -->
-            <div class="d-flex align-items-center justify-content-between mt-3">
-                <div class="d-flex align-items-center">
-                    <img src="./images/New Customers List.png" alt="">
-                    <div class="ms-3">
-                        <small>Domenica @domenica</small><br>
-                        <small>Comment on Smiles Product</small>
-                    </div>
-                     
-                </div>
-                <small>1h</small>
-            </div>
+            <!-- notification pop-up  -->
+              <div class="col-md-4" id="notificationPopUp">
+                  <div class="card p-3" style=" overflow-y: auto;">
+                    <h6 class="fw-bold mb-3">Recent Activities in Your City</h6>
+                    <ul class="list-unstyled" id="activityFeed"></ul>
+                  </div>
+              </div>
           </div>
         </div>
+      </nav>
+      <!-- Mobile Navbar (visible only on sm) -->
+      <nav class="navbar bg-white px-3 d-flex justify-content-between align-items-center d-flex d-sm-flex d-md-none">
+        <!-- Left side -->
+        <div class="d-flex align-items-center">
+          <!-- Hamburger -->
+          <button class="btn p-0 me-3" data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu">
+            <i class="fa-solid fa-bars fs-4"></i>
+          </button>
+          <!-- Search -->
+           <div class="search-container">
+            <button class="btn p-0" id="mobileSearchBtn" aria-label="Open search">
+              <i class="fa-solid fa-magnifying-glass fs-5 text-muted"></i>
+            </button>
+            <input
+              type="text"
+              id="mobileSearchInput"
+              class="mobile-search-input"
+              placeholder="Search dashboard..."
+              aria-label="Search dashboard"
+            />
+          </div>
+          <!-- <div class="search-container position-relative">
+            <button class="btn p-0" id="mobileSearchBtn">
+              <i class="fa-solid fa-magnifying-glass fs-5 text-muted"></i>
+            </button>
+            <input type="text" id="mobileSearchInput" class="form-control form-control-sm position-absolute"
+              placeholder="Search..."
+              style="width: 0; opacity: 0; transition: all 0.3s ease; left: 40px; top: 0; z-index: 1000;">
+          </div> -->
         </div>
-    </nav>
+        <!-- Right side -->
+        <div class="d-flex align-items-center">
+          <!-- Bell -->
+          <button class="text-reset me-1 btnSharp position-relative" onclick="toggleNotifications(event)">
+  <i class="fas fa-bell"></i>
+  <span id="notificationBadge1"
+        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+        style="font-size: 0.7rem; display:none;">
+  </span>
+</button>
+          <!-- Profile -->
+          <img src="./images/cheerful-curly-man-with-bristle-points-left-wears-casual-clothes-spectacles 1.png"
+              class="rounded-circle"
+              alt="Profile" width="40" height="40">
+        </div>
+        <div class="col-md-4" id="notificationPopUp2" style="display: none;">
+  <div class="card p-3" style="overflow-y: auto; max-height: 400px;">
+    <h6 class="fw-bold mb-3">Recent Activities in Your City</h6>
+    <ul class="list-unstyled" id="activityFeed1"></ul>
+  </div>
+</div>
+      </nav>
+      <!-- Sidebar (offcanvas for mobile) -->
+      <div class="offcanvas offcanvas-start sidebar" tabindex="-1" id="sidebarMenu">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body ">
+          <ul class="listItem">
+            <li><a href="index.html" class="active" style="text-decoration: none; color: #8D98AF; "><i class="fa-solid fa-house me-3"></i>Dashboard</a></li>
+            <li><a href="./orders.html" style="text-decoration: none; color: #8D98AF; "><i class="fa-solid fa-cart-shopping me-3"></i>Orders</a></li>
+            <li><a href="./customers.html" style="text-decoration: none; color: #8D98AF; "><i class="fa-solid fa-user me-3"></i>Customers</a></li>
+            <li><a href="./inventory.html" style="text-decoration: none; color: #8D98AF; "><i class="fa-solid fa-warehouse me-3"></i>Inventory</a></li>
+            <li><a href="./notifications.html" style="text-decoration: none; color: #8D98AF; "><i class="fa-solid fa-bell me-3"></i>Notifications</a></li>
+            <hr>
+            <li><a href="#" style="text-decoration: none; color: #8D98AF; "><i class="fa-solid fa-message me-3"></i>Reviews</a></li>
+            <li><a href="#" style="text-decoration: none; color: #8D98AF; "><i class="fa-solid fa-gear me-3"></i>Settings</a></li>
+            <li><a onclick="logOut()" style="cursor:pointer; text-decoration: none; color: #8D98AF"><i class="fa-solid fa-arrow-right-from-bracket me-3"></i>Logout</a></li>
+          </ul>
+        </div>
+      </div>
 
 
 <div class="container-fluid ">
   <div class="row">
-    <!-- Sidebar -->
-    <div class="col-md-2 sidebar ">
-        <ul class="listItem ">
-    <li">
-    <a href="index.html" class="active" style="text-decoration: none; color: #8D98AF; "><i class="fa-solid fa-house me-3"></i></span><span>Dashboard</span></a>
-    </li>
-    
-    <li>
-    <a href="./orders.html" class="" style="text-decoration: none; color: #8D98AF;"><i class="fa-solid fa-cart-shopping me-3"></i></span><span>Order</span></a>
-    </li>
-    <li>
-    <a href="./customers.html" style="text-decoration: none; color:#8D98AF;"><i class="fa-solid fa-user me-3"></i></span><span>Customers</span></a>
-    </li>
-    <li>
-        <a href="./inventory.html" style="text-decoration: none; color: #8D98AF;"><i class="fa-solid fa-warehouse me-3"></i></span><span>Inventory</span></a>
-    </li>
-    <li>
-        <a href="./notifications.html" style="text-decoration: none; color: #8D98AF;" ><i class="fa-solid fa-bell me-3"></i></span><span>Notification</span></a>
-    </li>
-    <hr>
-    <li class="">
-        <a href="#" style="text-decoration: none; color: #8D98AF;"><i class="fa-solid fa-message me-3"></i></span><span>Reviews</span></a>
-    </li>
-    <li class="">
-        <a href="#" style="text-decoration: none; color: #8D98AF;" ><i class="fa-solid fa-gear me-3"></i></span><span>settings</span></a>
-    </li>
-    
-
-    <button class="Dashbutton mt-5 " style="cursor: pointer;">
-    <a onclick="logout()" style="text-decoration: none; color:#8D98AF ; "><i class="fa-solid fa-arrow-right-from-bracket me-3"></i></span><span class="logspan">Logout</span></a>
-                </li>
-        </ul>
-    </div>
+       <!-- Sidebar -->
+          <div class="col-md-2 sidebar d-md-block d-none">
+          <ul class="listItem">
+            <li>
+              <a href="index.html" class="nav-link">
+                <i class="fa-solid fa-house me-lg-3 me-md-1"></i>
+                <span>Dashboard</span>
+              </a>
+            </li>
+            <li>
+              <a href="orders.html" class="nav-link">
+                <i class="fa-solid fa-cart-shopping me-lg-3 me-md-1"></i>
+                <span>Orders</span>
+              </a>
+            </li>
+            <li>
+              <a href="customers.html" class="nav-link">
+                <i class="fa-solid fa-user me-lg-3 me-md-1"></i>
+                <span>Customers</span>
+              </a>
+            </li>
+            <li>
+              <a href="inventory.html" class="nav-link">
+                <i class="fa-solid fa-warehouse me-lg-3 me-md-1"></i>
+                <span>Inventory</span>
+              </a>
+            </li>
+            <li>
+              <a href="notifications.html" class="nav-link">
+                <i class="fa-solid fa-bell me-lg-3 me-md-1"></i>
+                <span>Notifications</span>
+              </a>
+            </li>
+            <hr>
+            <li>
+              <a href="#" class="nav-link">
+                <i class="fa-solid fa-message me-lg-3 me-md-1"></i>
+                <span>Reviews</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="nav-link">
+                <i class="fa-solid fa-gear me-lg-3 me-md-1"></i>
+                <span>Settings</span>
+              </a>
+            </li>
+            <li class="mt-5">
+              <a href="#" class="nav-link  Dashbutton" onclick="logOut()">
+                <i class="fa-solid fa-arrow-right-from-bracket me-lg-3 me-md-1"></i>
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
+        </div>
 
     <!-- Main Content -->
     <div class="col-md-10 p-4">
-      <!-- Top Metrics -->
-      <div class="row g-3 mb-4">
-        <div class="col-md-3">
-          <div class="metric-card">
-            <h5>Total Distribution (Yearly)</h5>
-            <h3>$84,573</h3><small class="text-success">+4.2%</small>
-            <small class="text-success">+4.2% </small><i class="fa-light fa-arrow-up" style="color: red;"></i>
-            <small>Compared to ($3400 last year)</small>
+      <div class="card mt-3">
+  <div class="card-header bg-white border-0">
+    <h4 class="fw-bold mt-5">Notifications</h4>
+  </div>
+  <div class="card-body">
+    <div id="notificationsList"></div>
 
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="metric-card">
-            <h5>Total Distribution (Daily)</h5>
-            <h3>$124,055</h3>
-            <small class="text-success">+3.2% vs last year</small>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="metric-card">
-            <h5>Total Distribution (Weekly)</h5>
-            <h3>$4,512</h3>
-            <small class="text-danger">-2.2% vs last year</small>
-          </div>
-        </div>
-        <div class="col-md-3">
-          <div class="metric-card">
-            <h5>Total Distribution (Monthly)</h5>
-            <h3>$17,856</h3>
-            <small class="text-success">+1.8% vs last year</small>
-          </div>
-        </div>
-      </div>
-
-      <!-- Charts -->
-      <div class="row g-3 mb-4">
-        <div class="col-md-8">
-          <div class="card p-3">
-            <!-- <img src="./images/Sales statistics.png" alt=""> -->
-            <h6>Distribution Trends</h6> 
-             <canvas id="trendChart" height="100"></canvas>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card p-3">
-            <img src="./images/Daily Visit Insights.png" alt="">
-            <!-- <h6>Daily Visit Insights</h6>
-            <canvas id="visitChart" height="100"></canvas> -->
-          </div>
-        </div>
-      </div>
-
-      <!-- Best Selling Products + Doughnut -->
-      <div class="row g-3 mb-4">
-        <div class="col-md-8" >
-          <div class="card p-3 " id="TableId">
-            <div class="d-flex align-items-center justify-content-between">
-            <h6>Best-Selling Products</h6>
-            <a href="#" class="text-decoration-none" style="color: #00A859;">View All</a>
-            </div>
-            <table class=" table big-table table-borderless">
-              <thead class="tablePad">
-                <tr class="" style="color: #8D98AF; ">
-                  <th>Name</th>
-                  <th>Sales</th>
-                  <th>Stock</th>
-                  <th>Amount</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="mt-3">
-                  <td>Berry Bliss Bites</td>
-                  <td>3.453</td>
-                  <td>845</td>
-                  <td>$470.00</td>
-                  <td><span class="badge bg-success">In Stock</span></td>
-                </tr>
-                <tr>
-                  <td>Berry Bliss Bites</td>
-                  <td>3.453</td>
-                  <td>845</td>
-                  <td>$470.00</td>
-                  <td><span class="badge bg-success">In Stock</span></td>
-                </tr>
-                <tr>
-                  <td>Organic Almond Delight</td>
-                  <td>3.453</td>
-                  <td>845</td>
-                  <td>$470.00</td>
-                  <td><span class="badge bg-success">In Stock</span></td>
-                </tr>
-                <tr>
-                  <td>Organic Almond Delight</td>
-                  <td>3.453</td>
-                  <td>845</td>
-                  <td>$470.00</td>
-                  <td><span class="badge bg-success">In Stock</span></td>
-                </tr>
-                <tr>
-                  <td>Berry Bliss Bites</td>
-                  <td>3.453</td>
-                  <td>845</td>
-                  <td>$470.00</td>
-                  <td><span class="badge bg-success">In Stock</span></td>
-                </tr>
-                
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card p-3">
-            <img src="./images/Component 13.png" alt="">
-            <!-- <h6>Top Products Share</h6>
-            <canvas id="productChart" height="150"></canvas> -->
-          </div>
-        </div>
-      </div>
-
-      <!-- Customers & Orders -->
-      <div class="row g-3">
-        <div class="col-md-4">
-          <div class="card p-3">
-            <div class="d-flex align-items-center justify-content-between mb-2 ">
-                <h6>New Customers</h6>
-                <i class="fa-solid fa-ellipsis" style="color: #cbd3e1;"></i>
-            </div>
-            <hr>
-            <!-- first customer -->
-            <div class="d-flex align-items-center justify-content-between">
-                <div class="d-flex align-items-center">
-                    <img src="./images/New Customers List.png" alt="">
-                    <div class="ms-3">
-                        <small>Amarise Bilal</small><br>
-                        <small>Customer ID#00222</small>
-                    </div>
-                     
-                </div>
-                <i class="fa-solid fa-ellipsis" style="color: #cbd3e1;"></i>
-            </div>
-            <!-- second customer -->
-            <div class="d-flex align-items-center justify-content-between mt-3">
-                <div class="d-flex align-items-center">
-                    <img src="./images/New Customers List.png" alt="">
-                    <div class="ms-3">
-                        <small>Amarise Bilal</small><br>
-                        <small>Customer ID#00222</small>
-                    </div>
-                     
-                </div>
-                <i class="fa-solid fa-ellipsis" style="color: #cbd3e1;"></i>
-            </div>
-
-            <!-- third customer  -->
-            <div class="d-flex align-items-center justify-content-between mt-3">
-                <div class="d-flex align-items-center">
-                    <img src="./images/New Customers List.png" alt="">
-                    <div class="ms-3">
-                        <small>Amarise Bilal</small><br>
-                        <small>Customer ID#00222</small>
-                    </div>
-                     
-                </div>
-                <i class="fa-solid fa-ellipsis" style="color: #cbd3e1;"></i>
-            </div>
-            <!-- fourth customer -->
-            <div class="d-flex align-items-center justify-content-between mt-3">
-                <div class="d-flex align-items-center">
-                    <img src="./images/New Customers List.png" alt="">
-                    <div class="ms-3">
-                        <small>Amarise Bilal</small><br>
-                        <small>Customer ID#00222</small>
-                    </div>
-                     
-                </div>
-                <i class="fa-solid fa-ellipsis" style="color: #cbd3e1;"></i>
-            </div>
-
-          </div>
-        </div>
-        <div class="col-md-8">
-          <div class="card p-3">
-            <h6>Order List</h6>
-            <table class="table big-table table-borderless" >
-              <thead class="tablePad">
-                <tr>
-                  <th>Payment Number</th>
-                  <th>Date & time</th>
-                  <th>Amount</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Payment from #10321</td>
-                  <td>Jul 19, 2024, 3:30pm</td>
-                  <td>$350.00</td>
-                  <td><span class="badge bg-success">Completed</span></td>
-                  </tr>
-                <tr>
-                  <td>Process refund to #00910</td>
-                  <td>Jul 01, 2024, 3:30pm</td>
-                  <td>$570.00</td>
-                  <td><span class="badge bg-danger ">declined</span></td></tr>
-                <tr>
-                  <td>Process delivery to #44333</td>
-                  <td>Jun 21, 2024, 3:30pm</td>
-                  <td>$840.00</td>
-                  <td><span class="badge bg-success">Completed</span></td>
-                </tr>
-                <tr>
-                  <td>Process refund to #00910</td>
-                  <td>May 01, 2024, 3:30pm</td>
-                  <td>$570.00</td>
-                  <td><span class="badge bg-danger">declined</span></td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="text-center">
-                <button class="TableBUTon">view All transaction</button>
-              </div>
-          </div>
-        </div>
-      </div>
-
-        <div class="row shadow">
-      <div class="col-sm-12 col-md-4 col-lg-12">
-        <div class="text-center">
-          <img src="./images/ic_baseline-notification-add.png" alt="">
-          <h2>No Notifications</h2>
-          <p>Having a customer list helps to know your audience better.<br>Manage your customers in one place and target your audience better.</p>
-        </div>
-      </div>
-    </div>
-    
+    <!-- Pagination -->
+    <div class="d-flex justify-content-between align-items-center mt-3">
+      <small id="showingText" class="text-muted"></small>
+      <nav>
+        <ul class="pagination pagination-sm mb-0" id="pagination"></ul>
+      </nav>
     </div>
   </div>
+</div>
+   </div>
 
   
 </div>

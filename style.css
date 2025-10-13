@@ -71,17 +71,65 @@ body {
     .bshadow {
     height: 100vh;
 }
+
+.sidebar {
+    padding-top: 0px !important;
+}
 }
 
 
 
-
+.sidebar {
+  background-color: #fff;
+  /* height: 100vh; */
+  border-right: 1px solid #E0E0E0;
+  padding-top: 80px;
+}
+.sidebar .listItem {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.sidebar .listItem li {
+  margin-bottom: 12px;
+}
+/* Sidebar Links */
+.sidebar .nav-link {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #8D98AF;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+.sidebar .nav-link:hover {
+  background-color: #F2F5FA;
+  color: #333;
+}
+.sidebar .nav-link.active {
+  background-color: #E8F0FF;
+  color: #2F67FF;
+  font-weight: 600;
+}
+/* Active icon color */
+.sidebar .nav-link.active i {
+  color: #2F67FF;
+}
+/* Logout link */
+.logout-link {
+  color: #DC3545 !important;
+}
+.logout-link:hover {
+  background-color: #FFE6E6;
+  color: #B02A37 !important;
+}
 
 
 /* sidebar styling starts here  */
 
-.sidebar {
-    /* height: 100vh; */
+/* .sidebar {
+
     background: #fff;
     border-right: 1px solid #dee2e6;
 }
@@ -95,7 +143,44 @@ body {
     background: #f1f1f1;
     border-radius: 20px;
 
+} */
+
+
+.search-container {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  gap: 6px;
 }
+/* input default (collapsed) */
+.mobile-search-input {
+  width: 0;
+  opacity: 0;
+  padding: 6px 8px;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+  background: transparent;
+  transition: width 0.22s ease, opacity 0.22s ease, transform 0.22s ease;
+  font-size: 0.95rem;
+  transform-origin: left center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+/* visible when expanded */
+.search-container.expanded .mobile-search-input {
+  width: 150px;            /* adjust width as needed */
+  opacity: 1;
+  transform: none;
+}
+/* remove default focus outline but keep accessibility outline */
+.mobile-search-input:focus {
+  outline: 2px solid rgba(47,103,255,0.12);
+  outline-offset: 2px;
+  background: transparent;
+}
+/* keep the button icon clickable and not selectable text */
+#mobileSearchBtn { user-select: none; }
+
 .metric-card {
     background: #fff;
     border-radius: 8px;
@@ -256,6 +341,24 @@ table td, .PaginaTION {
     color: #171725;
     padding: 20px !important;
 }
+
+.toast {
+  background-color: #198754; /* Bootstrap success green */
+  color: white;
+  padding: 12px 18px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-weight: 500;
+  font-size: 15px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.5s ease;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 #PendingorderTable, #deliveredgorderTable, #cancelorderTable {
     display: none;
@@ -517,3 +620,95 @@ form label {
   background-color: #e9ecef;
 }
 
+.status-cell {
+  transition: opacity 0.3s ease;
+}
+
+.status-icon {
+  transition: color 0.4s ease;
+}
+
+/* 💚 Pulse animation for active users */
+@keyframes pulseGreen {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 168, 89, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(0, 168, 89, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 168, 89, 0);
+  }
+}
+
+.status-icon.pulse {
+  position: relative;
+  animation: pulseGreen 1.5s infinite;
+  border-radius: 50%;
+}
+
+.table-active {
+  background-color: #eef3ff !important;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* --- Order Modal Styles --- */
+.order-header {
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.product-card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+}
+
+.product-card img {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.customer-card {
+  border-radius: 15px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.customer-card img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 3px solid #e4e4e4;
+}
+
+.customer-info h6 {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.customer-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* #notificationBadge {
+  font-size: 0.7rem;
+  min-width: 18px;
+  min-height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
